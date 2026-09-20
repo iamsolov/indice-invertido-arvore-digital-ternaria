@@ -1,4 +1,5 @@
 package src;
+
 public class ArvoreDigitalTernaria{
 
     // Attributes
@@ -22,14 +23,14 @@ public class ArvoreDigitalTernaria{
         } 
         
         if (caractere < no.getCaractere()) { 
-            no.setEsquerdo( inserirRecursivo(no.getEsquerdo(), palavra, posicao)); 
+            no.setEsquerdo(inserirRecursivo(no.getEsquerdo(), palavra, posicao)); 
             
         } else if (caractere > no.getCaractere()) { 
-            no.setDireito( inserirRecursivo(no.getDireito(), palavra, posicao));
+            no.setDireito(inserirRecursivo(no.getDireito(), palavra, posicao));
 
         } else { 
             if (posicao < palavra.length() - 1) {
-                no.setMeio( inserirRecursivo(no.getMeio(), palavra, posicao + 1));
+                no.setMeio(inserirRecursivo(no.getMeio(), palavra, posicao + 1));
 
             } else {
                 no.setFimDaPalavra(true); 
@@ -60,13 +61,18 @@ public class ArvoreDigitalTernaria{
             return buscarRecursivo(no.getEsquerdo(), palavra, posicao);
 
         } else if (caractere > no.getCaractere()) { 
-            return buscarRecursivo( no.getDireito(), palavra, posicao);
+            return buscarRecursivo(no.getDireito(), palavra, posicao);
 
         } else {
             if (posicao == palavra.length() - 1) { 
-                return no; 
+                if (no.getFimDaPalavra()) {
+                    return no;
+
+                }
+
+                return null;
             } 
-            return buscarRecursivo( no.getMeio(), palavra, posicao + 1); 
+            return buscarRecursivo(no.getMeio(), palavra, posicao + 1); 
         }
 
     }
