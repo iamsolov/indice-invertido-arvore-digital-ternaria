@@ -39,16 +39,13 @@ public class ArvoreDigitalTernaria{
     
     } 
     
-    public boolean buscar(String palavra) {
+    public No buscar(String palavra) {
         if (palavra == null || palavra.isEmpty()) { 
-            return false;
-            
-        } 
+            return null;
 
-        No no = buscarRecursivo(raiz, palavra, 0);
+        }
 
-        return no != null && no.getFimDaPalavra(); 
-        
+        return buscarRecursivo(raiz, palavra, 0);
     }
 
     private No buscarRecursivo(No no, String palavra, int posicao) { 
