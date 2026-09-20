@@ -1,3 +1,4 @@
+package src;
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
@@ -68,7 +69,7 @@ public class Main {
 
             for (String arquivo : resultado) {
                 System.out.println(arquivo);
-                
+
             }
 
             System.out.println();
